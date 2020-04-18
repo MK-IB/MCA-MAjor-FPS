@@ -6,8 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Fader
-  - alarm_light
   - siren
+  - alarmLight
+  - mainLight
   layers:
   - Default
   - TransparentFX
