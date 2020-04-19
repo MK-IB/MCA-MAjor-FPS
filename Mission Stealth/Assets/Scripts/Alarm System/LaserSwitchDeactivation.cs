@@ -17,7 +17,7 @@ public class LaserSwitchDeactivation : MonoBehaviour
 	{
 		if(other.gameObject == player)
 		{
-			if(Input.GetButton("Switch"))
+			if(Input.GetKeyDown(KeyCode.B))
 			{
 				LaserDeactivation();
 			}
@@ -26,7 +26,7 @@ public class LaserSwitchDeactivation : MonoBehaviour
 	void LaserDeactivation()
 	{
 		laser.SetActive(false);
-		Renderer screen = transform.Find("prop_switchUnit_screen_001").GetComponent<Renderer>();
+		Renderer screen = transform.Find("prop_switchUnit_screen").GetComponent<Renderer>();
 		screen.material = unlockMat;
 		GetComponent<AudioSource>().Play();
 	}

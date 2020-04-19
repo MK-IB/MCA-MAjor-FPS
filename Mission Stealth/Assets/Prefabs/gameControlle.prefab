@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4889785333904382}
   - component: {fileID: 82060103778147890}
   - component: {fileID: 114385444933989840}
+  - component: {fileID: 114364863791210460}
   m_Layer: 0
   m_Name: gameControlle
   m_TagString: GameController
@@ -82,7 +83,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 583cc856362205f40898f7f617be0846, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.22
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -231,6 +232,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114364863791210460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514418970491998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9847d575b4af143ac526d0aa51cd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dyingState: 0
+  deaBool: 0
+  locomotionState: 0
+  shoutState: 0
+  speedFloat: 0
+  sneakingBool: 0
+  shoutingBool: 0
+  playerInSightBool: 0
+  shotFloat: 0
+  aimWeightFloat: 0
+  angularSpeedFloat: 0
+  openBool: 0
 --- !u!114 &114385444933989840
 MonoBehaviour:
   m_ObjectHideFlags: 1

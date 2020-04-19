@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAnimation : MonoBehaviour {
+public class LiftDoorsTracking : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
