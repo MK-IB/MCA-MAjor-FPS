@@ -40,8 +40,9 @@ public class PlayerHealth : MonoBehaviour
 		AudioSource.PlayClipAtPoint(deathClip, transform.position);
 	}
 	void PlayerDead(){
-		playerMovement.enabled = false;
+		//playerMovement.enabled = false;
 		lastPlayerSighting.position = lastPlayerSighting.resetPosition;
+		Debug.Log("You died !!!");
 	}
 
 	void LevelReset()
