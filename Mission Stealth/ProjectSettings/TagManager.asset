@@ -9,6 +9,7 @@ TagManager:
   - siren
   - alarmLight
   - mainLight
+  - bulletnumText
   layers:
   - Default
   - TransparentFX

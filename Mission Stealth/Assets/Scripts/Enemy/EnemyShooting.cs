@@ -2,8 +2,7 @@
 
 public class EnemyShooting : MonoBehaviour
 {
-	public float maximumDamage = 120f;
-	public float minimumDamage = 45f;
+	public float minimumDamage = 5f;
 	public AudioClip shotClip;
 	public float flashIntensity = 3f;
 	public float fadeSpeed = 10f;
@@ -30,8 +29,6 @@ public class EnemyShooting : MonoBehaviour
 
 		laserShotLine.enabled = false;
 		laserShotLight.intensity = 0f;
-
-		scaledDamage = maximumDamage - minimumDamage;
 	}
 
 	void Update()
@@ -56,16 +53,16 @@ public class EnemyShooting : MonoBehaviour
 	void Shoot()
 	{
 		shooting = true;
-		float fractionalDistance = (col.radius -Vector3.Distance(transform.position, player.position)) / col.radius;
-		float damage = scaledDamage * fractionalDistance + minimumDamage;
-		playerHealth.TakeDamage(damage);
-		Debug.Log("Enemy Shooting...");
+		//float fractionalDistance = (col.radius -Vector3.Distance(transform.position, player.position)) / col.radius;
+		//float damage = fractionalDistance + minimumDamage;
+		//damage = Mathf.CeilToInt(damage);
+		playerHealth.TakeDamage(minimumDamage);
 		ShotEffects();
 	}
 	void ShotEffects()
 	{
 		laserShotLine.SetPosition(0, laserShotLine.transform.position);
-		laserShotLine.SetPosition(1, player.position + Vector3.up * 1.5f);
+		laserShotLine.SetPosition(1, player.position);
 		laserShotLine.enabled = true;
 		laserShotLight.intensity = flashIntensity;
 		AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);

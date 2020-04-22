@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerHealth : MonoBehaviour 
@@ -6,6 +7,10 @@ public class PlayerHealth : MonoBehaviour
 	public float health = 100f;
 	public float resetAfterDeathTime = 5f;
 	public AudioClip deathClip;
+	public Canvas deathCanvas;
+	public Canvas playerInfoCanvas;
+	public Slider healthSlider;
+	public Image healthBar;
 
 	private FirstPersonController playerMovement;
 	private LastPlayerSighting lastPlayerSighting;
@@ -14,42 +19,32 @@ public class PlayerHealth : MonoBehaviour
 
 	void Awake()
 	{
+		deathCanvas.enabled = false;
 		playerMovement = GetComponent<FirstPersonController>();
 		lastPlayerSighting = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<LastPlayerSighting>();
 	}
 
 	void Update()
 	{
-		if(health <= 0f)
+		healthSlider.value = health;
+		if(health < 0) health = 0;
+		if(health == 0f)
 		{
-			if(!playerDead)
-			{
-				PlayerDying();
-			}
-			else
-			{
-				PlayerDead();
-				LevelReset();
-			}
+			PlayerDead();
 		}
-	}
-
-	void PlayerDying()
-	{
-		playerDead = true;
-		AudioSource.PlayClipAtPoint(deathClip, transform.position);
+		if(health < 50)
+			healthBar.color = Color.yellow;
+		if(health < 20)
+			healthBar.color = Color.red;
 	}
 	void PlayerDead(){
-		//playerMovement.enabled = false;
-		lastPlayerSighting.position = lastPlayerSighting.resetPosition;
+		playerInfoCanvas.enabled = false;
+		deathCanvas.enabled = true;
 		Debug.Log("You died !!!");
+		//AudioSource.PlayClipAtPoint(deathClip, transform.position);
+		lastPlayerSighting.position = lastPlayerSighting.resetPosition;
 	}
-
-	void LevelReset()
-	{
-
-	}
-
+	
 	public void TakeDamage(float amount)
 	{
 		health -= amount;

@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 108479308951798402}
   - component: {fileID: 120635301051935176}
   m_Layer: 0
-  m_Name: fx_lasershot
+  m_Name: fx_laserShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,7 +1699,7 @@ Animator:
   m_GameObject: {fileID: 1466698860447218}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3974b181f8f59754ca61fd0985a39b73, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b77098e62929d46da99bd6b228de99be, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumDamage: 120
   minimumDamage: 45
-  shotlClip: {fileID: 8300000, guid: 0af3d513283ae634480aa98a0d2da839, type: 3}
+  shotClip: {fileID: 8300000, guid: 0af3d513283ae634480aa98a0d2da839, type: 3}
   flashIntensity: 3
   fadeSpeed: 10
 --- !u!114 &114740544668569220
@@ -1800,7 +1800,11 @@ MonoBehaviour:
   chaseSpeed: 5
   chaseWaitTime: 5
   patrolWaitTime: 1
-  patrolWayPoints: []
+  patrolWayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!120 &120635301051935176
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1840,7 +1844,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.05
+    widthMultiplier: 0.02
     widthCurve:
       serializedVersion: 2
       m_Curve:
