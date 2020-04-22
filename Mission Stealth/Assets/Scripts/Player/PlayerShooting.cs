@@ -8,11 +8,13 @@ public class PlayerShooting : MonoBehaviour
 	
 	public Text bulletNumText;
 	public ParticleSystem muzzle;
-
-	private Camera cam;
-	//private AudioSource audio;
 	public AudioClip firing;
 	public AudioClip reloading;
+
+	private Camera cam;
+	private EnemyHealth enemyHealth;
+	private float damageAmount = 13f;
+	
 	void Start()
 	{
 		bulletNum = maxBulletNum;
@@ -35,10 +37,9 @@ public class PlayerShooting : MonoBehaviour
 		RaycastHit hit;
 		if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit))
 		{
-			if(hit.transform.tag == "Enemy")
-			{
-				Debug.Log("Enemy shot");
-			}
+			EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
+			if(enemyHealth != null)
+				enemyHealth.TakeDamage(damageAmount);
 		}
 		bulletNum -= 1;
 		ShotEffects(hit);
